@@ -11,7 +11,14 @@ export default function Sidebar(){
 
   return (
     <div class="sidebar">
-      {arrayUser.map(User)}
+      {arrayUser.map(user => (
+        <User 
+        userImg={user.userImg}
+        altText={user.altText}
+        userName={user.userName}
+        userDescription={user.userDescription}
+        />
+      ))}
       <Sugestions />
       <Links />
       <Copyright />
@@ -20,14 +27,14 @@ export default function Sidebar(){
 
 }
 
-function User(object){
+function User(props){
   
   return (
     <div class="usuario">
-      <img src={object.userImg} alt={object.altText}/>
+      <img src={props.userImg} alt={props.altText}/>
       <div class="texto">
-        <strong>{object.userName}</strong>
-        {object.userDescription}
+        <strong>{props.userName}</strong>
+        {props.userDescription}
       </div>
     </div>
   );

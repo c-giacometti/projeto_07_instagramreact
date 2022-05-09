@@ -13,19 +13,26 @@ export default function Stories(){
 
     return (
         <div class="stories">
-            {storyArray.map(Story)}
+            {storyArray.map(story => (
+                <Story 
+                img={story.img} 
+                alt={story.alt} 
+                user={story.user}
+                />
+                ))
+            }
             <Arrow />
         </div>
     );
 
 }
 
-function Story(object){
+function Story(props){
 
     return (
         <div class="story">
-            <div class="imagem"><img src={object.img} alt={object.alt} /></div>
-            <div class="usuario">{object.user}</div>
+            <div class="imagem"><img src={props.img} alt={props.alt} /></div>
+            <div class="usuario">{props.user}</div>
         </div>
     );
 

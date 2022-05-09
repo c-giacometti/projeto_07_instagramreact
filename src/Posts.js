@@ -21,21 +21,30 @@ export default function Posts(){
 
   return (
     <div class="posts">
-      {postsArray.map(Post)}
+      {postsArray.map(render => (
+        <Post
+        imgUser={render.imgUser}
+        user={render.user}
+        postImg={render.postImg}
+        userLikeImg={render.userLikeImg}
+        userLike={render.userLike}
+        likeQnt={render.likeQnt}
+        />
+      ))}
     </div>
   );
 
 }
 
-function Post(object){
+function Post(props){
 
   return (
     <div class="post">
-      <PostTop imgUser={object.imgUser} user={object.user} />
-      <PostContent postImg={object.postImg} />
+      <PostTop imgUser={props.imgUser} user={props.user} />
+      <PostContent postImg={props.postImg} />
       <div class="fundo">
         <PostActions />
-        <PostLikes userLikeImg={object.userLikeImg} userLike={object.userLike} likeQnt={object.likeQnt} />
+        <PostLikes userLikeImg={props.userLikeImg} userLike={props.userLike} likeQnt={props.likeQnt} />
       </div>
     </div>
   );
